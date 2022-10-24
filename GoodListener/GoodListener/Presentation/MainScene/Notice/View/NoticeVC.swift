@@ -17,8 +17,7 @@ class NoticeVC: UIViewController, SnapKitType {
     
     weak var coordinator: HomeCoordinating?
     let disposeBag = DisposeBag()
-    
-    var noticeState: noticeState = .notice
+    var noticeData: NoticeModel?
     
     let navigationView = NavigationView(frame: .zero, type: .none).then {
         $0.logo.isHidden = true
@@ -27,6 +26,7 @@ class NoticeVC: UIViewController, SnapKitType {
         $0.title.text = "알림"
     }
 
+    //알림 없을 때
     let bellImg = UIImageView().then {
         $0.image = #imageLiteral(resourceName: "img_noti_no")
         $0.contentMode = .scaleAspectFill
@@ -65,10 +65,15 @@ class NoticeVC: UIViewController, SnapKitType {
         addComponents()
         setConstraints()
         bind()
-        changeUI(noticeState)
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchData()
+    }
+    
     
     func addComponents() {
         [navigationView, RecordBgView, bellImg, nonetitleLbl, noneContentLbl, noneSettingLbl].forEach{
@@ -143,22 +148,51 @@ class NoticeVC: UIViewController, SnapKitType {
             break
         }
     }
+    
+    func initUI(){
+        bellImg.isHidden = true
+        nonetitleLbl.isHidden = true
+        noneContentLbl.isHidden = true
+        noneSettingLbl.isHidden = true
+        RecordBgView.isHidden = true
+    }
+    
+    func fetchData(){
+        initUI()
+        NoticeAPI.unread{ data, failed in
+            if ((data?.data.count ?? 0) != 0) {
+                guard let item = data else {return}
+                self.noticeData = item
+                self.RecordBgView.reloadData()
+                self.changeUI(.notice)
+            } else {
+                self.changeUI(.none)
+            }
+        }
+    }
 }
 
 
 extension NoticeVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+       
+        if noticeData == nil {
+            return 0
+        }else {
+            return noticeData!.data.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoticeCell.identifier, for: indexPath) as? NoticeCell else { fatalError() }
-//        cell.guideLbl.text = noticeData[indexPath.row].title
-//        cell.noticeLbl.text = noticeData[indexPath.row].body
-//        cell.dayLbl.text = noticeData[indexPath.row].date
-        
+        cell.guideLbl.text = noticeData?.data[indexPath.row].title
+        cell.noticeLbl.text = noticeData?.data[indexPath.row].content
+        cell.dayLbl.text = noticeData?.data[indexPath.row].createdAt //TODO: 날짜 형식 separatedby "." 으로 바꾸기
         return cell
     }
+    
+    //formattedDate
+    
 }
 
 extension NoticeVC: UICollectionViewDelegate {
