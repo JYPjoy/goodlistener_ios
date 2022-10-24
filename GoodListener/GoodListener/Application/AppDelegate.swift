@@ -86,7 +86,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             // Fallback on earlier versions
             completionHandler([])
         }
-        DBManager.shared.savePushData()
+        
         
         // Foreground 상태에서 전화가 왔는데 플래그가 call 이면 바로 전화를 띄워준다
         if let userInfo = notification.request.content.userInfo as? [String: Any] {

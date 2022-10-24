@@ -151,7 +151,7 @@ class HomeVC: UIViewController, SnapKitType {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let cnt = DBManager.shared.unreadfilter()
+        let cnt = 0
         navigationView.remainNoticeView.isHidden = cnt == 0
         navigationView.remainNoticeLbl.text = "+\(cnt)"
         fetchData()

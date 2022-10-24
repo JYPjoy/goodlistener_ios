@@ -7,7 +7,6 @@
 
 import UIKit
 import AuthenticationServices
-import RealmSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -63,8 +62,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             })
         }
-        
-        DBManager.shared.savePushData()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {

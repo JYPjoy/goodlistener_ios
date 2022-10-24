@@ -58,9 +58,6 @@ class RecordVC: UIViewController, SnapKitType{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let cnt = DBManager.shared.unreadfilter()
-        navigationView.remainNoticeView.isHidden = cnt == 0
-        navigationView.remainNoticeLbl.text = "+\(cnt)"
     }
     
     func addComponents() {
