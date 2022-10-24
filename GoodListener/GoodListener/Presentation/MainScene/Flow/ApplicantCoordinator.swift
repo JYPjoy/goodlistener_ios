@@ -10,6 +10,7 @@ import UIKit
 
 protocol ApplicantCoordinating: AnyObject {
     func call(model: [MatchedSpeaker]?)
+    func moveToNotice()
 }
 
 class ApplicantCoordinator: CoordinatorType {
@@ -34,6 +35,11 @@ class ApplicantCoordinator: CoordinatorType {
 extension ApplicantCoordinator: ApplicantCoordinating {
     func call(model: [MatchedSpeaker]?) {
         parentCoordinator?.call(model: model)
+    }
+    
+    func moveToNotice() {
+        let vc = NoticeVC()
+        navigationController.pushViewController(vc, animated: true)
     }
 }
 

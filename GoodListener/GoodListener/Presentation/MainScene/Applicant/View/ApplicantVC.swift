@@ -19,14 +19,11 @@ class ApplicantVC: UIViewController, SnapKitType {
 
     weak var coordinator: ApplicantCoordinating?
     let disposeBag = DisposeBag()
+    var mySpeaker: [MatchedSpeaker] = []
+    let viewModel = ApplicantViewModel()
     
     let navigationView = NavigationView(frame: .zero, type: .notice)
     let scrollView = UIScrollView()
-    
-    var mySpeaker: [MatchedSpeaker]?
-    
-    //현재 리스너 홈 화면 상태
-    var applicantState: applicantState = .matched
     
     let contentStackView = UIStackView().then {
         $0.axis = .vertical
@@ -150,11 +147,23 @@ class ApplicantVC: UIViewController, SnapKitType {
     }
     
     func bind() {
-        callBtn.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.coordinator?.call(model: self?.mySpeaker)
+
+        let output = viewModel.transform(input: ApplicantViewModel.Input(naviRightBtnTap: navigationView.rightBtn.rx.tap.asObservable(), callBtnTap: callBtn.rx.tap.asObservable()))
+        
+        // 네비게이션 오른쪽 버튼
+        output.naviRightBtnResult
+            .emit(with: self, onNext: {weakself, _ in
+                weakself.coordinator?.moveToNotice()
             })
             .disposed(by: disposeBag)
+        
+        // 통화 버튼
+        output.callBtnResult
+            .emit(with: self, onNext: {weakself, _ in
+                weakself.coordinator?.call(model: self.mySpeaker)
+            })
+            .disposed(by: disposeBag)
+        
     }
     
  
@@ -187,14 +196,12 @@ class ApplicantVC: UIViewController, SnapKitType {
         MatchAPI.MatchedSpeaker { data, error in
             self.containerView.hideSkeleton()
             if ((data) != nil) {
-                self.mySpeaker = data
+                guard let item = data else {return}
+                self.mySpeaker = item
                 self.mySpeakerView.reloadData()
-                self.applicantState = .matched
-                self.changeUI(self.applicantState)
-                
+                self.changeUI(.matched)
             } else {
-                self.applicantState = .join
-                self.changeUI(self.applicantState)
+                self.changeUI(.join)
             }
         }
     }
@@ -202,11 +209,18 @@ class ApplicantVC: UIViewController, SnapKitType {
 
 extension ApplicantVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mySpeaker?.count ?? 0
+        return mySpeaker.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mySpeakerCell.identifier, for: indexPath) as? mySpeakerCell else {fatalError()}
+        
+        cell.introLbl.text = "안녕하세요?\n저는" + mySpeaker[indexPath.row].nickname + "이에요"
+        cell.introLbl.textColorAndFontChange(text: cell.introLbl.text!, color: .f2, font:FontManager.shared.notoSansKR(.bold, 14) , range: [mySpeaker[indexPath.row].nickname])
+        cell.profileImg.image = UIImage(named: "profile"+String(mySpeaker[indexPath.row].speaker.profileImg))
+        cell.timeLbl.text = JoinMatchVC.shared.formattedTime(mySpeaker[indexPath.row].meetingTime)
+        cell.dateLbl.text = JoinMatchVC.shared.formattedDate(mySpeaker[indexPath.row].meetingTime)
+        
         return cell
     }
 

@@ -29,6 +29,7 @@
 		0AA8FF1D28DF555500C506C6 /* MatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8FF1C28DF555500C506C6 /* MatchAPI.swift */; };
 		0AA8FF1F28DF559600C506C6 /* MatchTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8FF1E28DF559600C506C6 /* MatchTargetType.swift */; };
 		0AA8FF2128DF5E7800C506C6 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8FF2028DF5E7800C506C6 /* BasePaddingLabel.swift */; };
+		0AB63E8F2906512500FA7306 /* ApplicantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB63E8E2906512500FA7306 /* ApplicantViewModel.swift */; };
 		0ABA2821288D5B55000D889B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA2820288D5B55000D889B /* AppDelegate.swift */; };
 		0ABA2823288D5B55000D889B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA2822288D5B55000D889B /* SceneDelegate.swift */; };
 		0ABA2825288D5B55000D889B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA2824288D5B55000D889B /* LoginVC.swift */; };
@@ -183,6 +184,7 @@
 		0AA8FF1C28DF555500C506C6 /* MatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchAPI.swift; sourceTree = "<group>"; };
 		0AA8FF1E28DF559600C506C6 /* MatchTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTargetType.swift; sourceTree = "<group>"; };
 		0AA8FF2028DF5E7800C506C6 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
+		0AB63E8E2906512500FA7306 /* ApplicantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantViewModel.swift; sourceTree = "<group>"; };
 		0ABA281D288D5B55000D889B /* GoodListener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodListener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABA2820288D5B55000D889B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ABA2822288D5B55000D889B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -419,6 +421,14 @@
 			path = Match;
 			sourceTree = "<group>";
 		};
+		0AB63E8D2906511900FA7306 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0AB63E8E2906512500FA7306 /* ApplicantViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0ABA2814288D5B55000D889B = {
 			isa = PBXGroup;
 			children = (
@@ -460,7 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				0AF43087288FD84F0078B2D5 /* View */,
-				0AF43088288FD8550078B2D5 /* ViewModel */,
+				0AB63E8D2906511900FA7306 /* ViewModel */,
 			);
 			path = Applicant;
 			sourceTree = "<group>";
@@ -472,13 +482,6 @@
 				0A1396F828F5B99C00755789 /* mySpeakerCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0AF43088288FD8550078B2D5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0AF4308F288FDC5B0078B2D5 /* Record */ = {
@@ -1325,6 +1328,7 @@
 				E8C25CA128E2CC5B006A7DE5 /* Codable+.swift in Sources */,
 				E8B444BC28B4B4990003815B /* CallReviewViewModel.swift in Sources */,
 				0A558A3A28B61E02001949D6 /* JoinMatchVC.swift in Sources */,
+				0AB63E8F2906512500FA7306 /* ApplicantViewModel.swift in Sources */,
 				E81E421E28C03BE20094CFD9 /* TokenAPI.swift in Sources */,
 				E8CFBCC4288F6DA000D63B07 /* CoordinatorType.swift in Sources */,
 				0ABA2825288D5B55000D889B /* LoginVC.swift in Sources */,
@@ -1610,14 +1614,14 @@
 				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoodListener/Resources/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근을 허용해 주세요";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone required";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"카메라 접근을 허용해주세요\"";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Microphone required\"";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 앨범에 접근하도록 허용 버튼을 눌러주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1647,14 +1651,14 @@
 				DEVELOPMENT_TEAM = XQ24HP64B3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoodListener/Resources/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근을 허용해 주세요";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone required";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"카메라 접근을 허용해주세요\"";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Microphone required\"";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 앨범에 접근하도록 허용 버튼을 눌러주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
