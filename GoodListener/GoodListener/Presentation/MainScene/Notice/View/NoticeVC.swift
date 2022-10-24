@@ -128,6 +128,13 @@ class NoticeVC: UIViewController, SnapKitType {
                 self?.navigationController?.popViewController(animated: true)
             })
         .disposed(by: disposeBag)
+        
+        noneSettingLbl.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            })
+            .disposed(by: disposeBag)
     }
 
     func changeUI(_ type: noticeState) {
@@ -175,10 +182,9 @@ class NoticeVC: UIViewController, SnapKitType {
 
 extension NoticeVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       
         if noticeData == nil {
             return 0
-        }else {
+        } else {
             return noticeData!.data.count
         }
     }
@@ -187,12 +193,18 @@ extension NoticeVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoticeCell.identifier, for: indexPath) as? NoticeCell else { fatalError() }
         cell.guideLbl.text = noticeData?.data[indexPath.row].title
         cell.noticeLbl.text = noticeData?.data[indexPath.row].content
-        cell.dayLbl.text = noticeData?.data[indexPath.row].createdAt //TODO: 날짜 형식 separatedby "." 으로 바꾸기
+        cell.dayLbl.text = formattedDate(noticeData?.data[indexPath.row].createdAt ?? "")
         return cell
     }
     
-    //formattedDate
-    
+    func formattedDate(_ date: String) -> String {
+        var dateFormat = ""
+        for index in 0...9 {
+            dateFormat += String(date[date.index(date.startIndex, offsetBy: index)])
+        }
+        dateFormat = dateFormat.replacingOccurrences(of: "-", with: ".")
+        return dateFormat
+    }
 }
 
 extension NoticeVC: UICollectionViewDelegate {
