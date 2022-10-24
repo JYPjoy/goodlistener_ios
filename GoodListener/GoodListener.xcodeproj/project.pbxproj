@@ -30,6 +30,9 @@
 		0AA8FF1F28DF559600C506C6 /* MatchTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8FF1E28DF559600C506C6 /* MatchTargetType.swift */; };
 		0AA8FF2128DF5E7800C506C6 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8FF2028DF5E7800C506C6 /* BasePaddingLabel.swift */; };
 		0AB63E8F2906512500FA7306 /* ApplicantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB63E8E2906512500FA7306 /* ApplicantViewModel.swift */; };
+		0AB63E99290663F800FA7306 /* NoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB63E98290663F800FA7306 /* NoticeAPI.swift */; };
+		0AB63E9B2906640400FA7306 /* NoticeTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB63E9A2906640400FA7306 /* NoticeTargetType.swift */; };
+		0AB63E9D2906642D00FA7306 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB63E9C2906642D00FA7306 /* NoticeModel.swift */; };
 		0ABA2821288D5B55000D889B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA2820288D5B55000D889B /* AppDelegate.swift */; };
 		0ABA2823288D5B55000D889B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA2822288D5B55000D889B /* SceneDelegate.swift */; };
 		0ABA2825288D5B55000D889B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA2824288D5B55000D889B /* LoginVC.swift */; };
@@ -185,6 +188,9 @@
 		0AA8FF1E28DF559600C506C6 /* MatchTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTargetType.swift; sourceTree = "<group>"; };
 		0AA8FF2028DF5E7800C506C6 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		0AB63E8E2906512500FA7306 /* ApplicantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantViewModel.swift; sourceTree = "<group>"; };
+		0AB63E98290663F800FA7306 /* NoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAPI.swift; sourceTree = "<group>"; };
+		0AB63E9A2906640400FA7306 /* NoticeTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTargetType.swift; sourceTree = "<group>"; };
+		0AB63E9C2906642D00FA7306 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		0ABA281D288D5B55000D889B /* GoodListener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodListener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABA2820288D5B55000D889B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ABA2822288D5B55000D889B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -429,6 +435,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0AB63E97290663EB00FA7306 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				0AB63E98290663F800FA7306 /* NoticeAPI.swift */,
+				0AB63E9A2906640400FA7306 /* NoticeTargetType.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
 		0ABA2814288D5B55000D889B = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +596,7 @@
 		E845495128BC7CC100DAD6EE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				0AB63E97290663EB00FA7306 /* Notice */,
 				ECD31B2928F6E5E600CB3F73 /* Call */,
 				E8821D5D28D95155004E9CEB /* LoadingIndicator */,
 				E81E41DA28BDC9B30094CFD9 /* Token */,
@@ -900,6 +916,7 @@
 				0ACE960F28E553C900C7DB28 /* MatchInfo.swift */,
 				0AC0590E28ED76C700706938 /* MatchedListener.swift */,
 				0A7AB12A28F8720B00BDEF3F /* MatchedSpeaker.swift */,
+				0AB63E9C2906642D00FA7306 /* NoticeModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1348,6 +1365,7 @@
 				E8B444B228B338710003815B /* SwipeButton.swift in Sources */,
 				E8B444A928AF55E00003815B /* TokenTargetType.swift in Sources */,
 				E8B443F528A22ABD0003815B /* CallReviewVC.swift in Sources */,
+				0AB63E9B2906640400FA7306 /* NoticeTargetType.swift in Sources */,
 				0A703B532896AB8300A05124 /* UserTargetType.swift in Sources */,
 				E8CFBCCF288F73AB00D63B07 /* AppCoordinator.swift in Sources */,
 				0ABA2821288D5B55000D889B /* AppDelegate.swift in Sources */,
@@ -1385,6 +1403,7 @@
 				ECBA27B728A4E0B60034A751 /* TagCell.swift in Sources */,
 				E8CB6568288E359A0076E254 /* ViewModelType.swift in Sources */,
 				E8B444D828B759B20003815B /* String+.swift in Sources */,
+				0AB63E9D2906642D00FA7306 /* NoticeModel.swift in Sources */,
 				E8B7A42528D2ED2200287EE0 /* UIApplication+.swift in Sources */,
 				E8CE19E2289CE08C007A56FE /* UIButton+.swift in Sources */,
 				E8A7954D289CCC4700EF9E1B /* Colors.swift in Sources */,
@@ -1425,6 +1444,7 @@
 				E8B4435A28A103570003815B /* UILabel+.swift in Sources */,
 				E845495428BC7F0100DAD6EE /* SignInModel.swift in Sources */,
 				E83CCAF028F81366005E5EB9 /* UITapGesturRecognizer+.swift in Sources */,
+				0AB63E99290663F800FA7306 /* NoticeAPI.swift in Sources */,
 				0A558A4628B61F2A001949D6 /* EmojiTagView.swift in Sources */,
 				E8B4435828A0EADD0003815B /* ProfileSetupVC.swift in Sources */,
 				0AA8FF1F28DF559600C506C6 /* MatchTargetType.swift in Sources */,
