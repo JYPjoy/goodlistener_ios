@@ -20,6 +20,7 @@ class ApplicantVC: UIViewController, SnapKitType {
     weak var coordinator: ApplicantCoordinating?
     let disposeBag = DisposeBag()
     var mySpeaker: [MatchedSpeaker] = []
+    let viewModel = ApplicantViewModel()
     
     let navigationView = NavigationView(frame: .zero, type: .notice)
     let scrollView = UIScrollView()
@@ -146,11 +147,23 @@ class ApplicantVC: UIViewController, SnapKitType {
     }
     
     func bind() {
-        callBtn.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.coordinator?.call(model: self?.mySpeaker)
+
+        let output = viewModel.transform(input: ApplicantViewModel.Input(naviRightBtnTap: navigationView.rightBtn.rx.tap.asObservable(), callBtnTap: callBtn.rx.tap.asObservable()))
+        
+        // 네비게이션 오른쪽 버튼
+        output.naviRightBtnResult
+            .emit(with: self, onNext: {weakself, _ in
+                weakself.coordinator?.moveToNotice()
             })
             .disposed(by: disposeBag)
+        
+        // 통화 버튼
+        output.callBtnResult
+            .emit(with: self, onNext: {weakself, _ in
+                weakself.coordinator?.call(model: self.mySpeaker)
+            })
+            .disposed(by: disposeBag)
+        
     }
     
  
