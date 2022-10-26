@@ -86,11 +86,11 @@ class MainCoordinator: CoordinatorType {
         home.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .normal)
         home.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .selected)
         
-        record.navigationController.tabBarItem = UITabBarItem(title: "대화 기록", image: UIImage(named: "ic_gnb_history_off"), tag: 1)
-        record.navigationController.tabBarItem.selectedImage = UIImage(named: "ic_gnb_history_on")
-        record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .normal)
-        record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .selected)
-        
+//        record.navigationController.tabBarItem = UITabBarItem(title: "대화 기록", image: UIImage(named: "ic_gnb_history_off"), tag: 1)
+//        record.navigationController.tabBarItem.selectedImage = UIImage(named: "ic_gnb_history_on")
+//        record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .normal)
+//        record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .selected)
+//
         myPage.navigationController.tabBarItem = UITabBarItem(title: "MY", image: UIImage(named: "ic_gnb_my_off"), tag: 2)
         myPage.navigationController.tabBarItem.selectedImage = UIImage(named: "ic_gnb_my_on")
         myPage.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .normal)
@@ -101,7 +101,7 @@ class MainCoordinator: CoordinatorType {
         tabBarController.tabBar.unselectedItemTintColor = .f5
 
         // 4️⃣ TabBarController.viewControllers에 각각코디네이터의 navigationController을 추가해주세요!
-        tabBarController.viewControllers = [home.navigationController, record.navigationController, myPage.navigationController]
+        tabBarController.viewControllers = [home.navigationController, myPage.navigationController] //record.navigationController,
         
         tabBarController.modalPresentationStyle = .fullScreen
         navigationController.present(tabBarController, animated: true)
@@ -119,7 +119,7 @@ class MainCoordinator: CoordinatorType {
 
             
             // 2️⃣ 탭바 컨트롤러에 하위 뷰컨트롤러를 추가해주세요!
-        applicant.start()
+            applicant.start()
             record.start()
             myPage.start()
 
@@ -139,10 +139,10 @@ class MainCoordinator: CoordinatorType {
             applicant.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .normal)
             applicant.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .selected)
             
-            record.navigationController.tabBarItem = UITabBarItem(title: "대화 기록", image: UIImage(named: "ic_gnb_history_off"), tag: 1)
-            record.navigationController.tabBarItem.selectedImage = UIImage(named: "ic_gnb_history_on")
-            record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .normal)
-            record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .selected)
+//            record.navigationController.tabBarItem = UITabBarItem(title: "대화 기록", image: UIImage(named: "ic_gnb_history_off"), tag: 1)
+//            record.navigationController.tabBarItem.selectedImage = UIImage(named: "ic_gnb_history_on")
+//            record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .normal)
+//            record.navigationController.tabBarItem.setTitleTextAttributes(fontAttributes, for: .selected)
             
             myPage.navigationController.tabBarItem = UITabBarItem(title: "MY", image: UIImage(named: "ic_gnb_my_off"), tag: 2)
             myPage.navigationController.tabBarItem.selectedImage = UIImage(named: "ic_gnb_my_on")
@@ -154,7 +154,7 @@ class MainCoordinator: CoordinatorType {
             tabBarController.tabBar.unselectedItemTintColor = .f5
 
             // 4️⃣ TabBarController.viewControllers에 각각코디네이터의 navigationController을 추가해주세요!
-            tabBarController.viewControllers = [applicant.navigationController, record.navigationController, myPage.navigationController]
+            tabBarController.viewControllers = [applicant.navigationController,  myPage.navigationController] //record.navigationController,
             
             tabBarController.modalPresentationStyle = .fullScreen
             navigationController.present(tabBarController, animated: true)
