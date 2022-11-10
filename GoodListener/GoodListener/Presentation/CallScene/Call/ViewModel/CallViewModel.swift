@@ -89,6 +89,9 @@ class CallViewModel: ViewModelType {
                     callEnd.accept(())
                     CallManager.shared.stop()
                     GLSocketManager.shared.disconnected()
+                    CallAPI.deleteChannel(request: self.model?.first?.channelId ?? 0, completion: { succeed,failed in
+                        Log.d("채널 Delete 성공")
+                    })
                     self.callingTimer?.invalidate()
                     self.callingTimer = nil
                     return
