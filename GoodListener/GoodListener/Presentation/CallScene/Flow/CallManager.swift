@@ -38,6 +38,7 @@ class CallManager: NSObject {
     func start(token: String, channelId: String, uid: Int, completion: ((String, UInt, Int) -> Void)? = nil) {
         // Join the channel with a token. Pass in your token and channel name here
         agoraKit?.joinChannel(byToken: token, channelId: channelId, info: nil, uid: 0, joinSuccess: completion)
+        agoraKit?.setDefaultAudioRouteToSpeakerphone(false)
         agoraKit?.setClientRole(.broadcaster)
     }
     
