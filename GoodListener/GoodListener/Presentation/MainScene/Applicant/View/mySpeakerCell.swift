@@ -93,10 +93,10 @@ class mySpeakerCell: UICollectionViewCell, SnapKitType {
             $0.bottom.equalToSuperview().offset(-10)
         }
         
-//        daycheckLbl.snp.makeConstraints{
-//            $0.top.equalToSuperview().offset(40)
-//            $0.left.equalToSuperview().offset(30)
-//        }
+        daycheckLbl.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(40)
+            $0.left.equalToSuperview().offset(30)
+        }
         
         introLbl.snp.makeConstraints {
             $0.top.equalTo(daycheckLbl.snp.bottom).offset(16)
@@ -129,12 +129,12 @@ class mySpeakerCell: UICollectionViewCell, SnapKitType {
             $0.left.equalToSuperview().offset(30)
         }
         
-//        sevendaysRecord.snp.makeConstraints{
-//            $0.top.equalTo(recordLbl.snp.bottom).offset(10)
-//            $0.left.equalToSuperview().offset(20)
-//            $0.right.equalToSuperview().offset(-20)
-//            $0.bottom.equalToSuperview().offset(-26)
-//        }
+        sevendaysRecord.snp.makeConstraints{
+            $0.top.equalTo(recordLbl.snp.bottom).offset(10)
+            $0.left.equalToSuperview().offset(20)
+            $0.right.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview().offset(-26)
+        }
     }
 
 }

@@ -223,11 +223,11 @@ class HomeVC: UIViewController, SnapKitType {
         
         
         // 매칭 후 UI
-//        daycheckLbl.snp.makeConstraints {
-//            $0.top.equalToSuperview().offset(30)
-//            $0.left.equalToSuperview().offset(70)
-//            $0.right.equalToSuperview().offset(-70)
-//        }
+        daycheckLbl.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(30)
+            $0.left.equalToSuperview().offset(70)
+            $0.right.equalToSuperview().offset(-70)
+        }
         
         profileImg.snp.makeConstraints {
             $0.top.equalTo(daycheckLbl.snp.bottom).offset(30)
@@ -253,13 +253,13 @@ class HomeVC: UIViewController, SnapKitType {
             $0.centerX.equalToSuperview()
         }
         
-//        sevendaysRecord.snp.makeConstraints{
-//            $0.top.equalTo(dateLbl.snp.bottom).offset(30)
-//            $0.left.equalToSuperview().offset(28)
-//            $0.right.equalToSuperview().offset(-28)
-//            $0.bottom.equalToSuperview().offset(-26)
-//
-//        }
+        sevendaysRecord.snp.makeConstraints{
+            $0.top.equalTo(dateLbl.snp.bottom).offset(30)
+            $0.left.equalToSuperview().offset(28)
+            $0.right.equalToSuperview().offset(-28)
+            $0.bottom.equalToSuperview().offset(-26)
+            
+        }
         
         postponeBtn.snp.makeConstraints {
             $0.width.equalTo(Const.glBtnWidth)
@@ -449,7 +449,6 @@ class HomeVC: UIViewController, SnapKitType {
                 self.introLbl.text = "안녕하세요?\n저는 "+UserDefaultsManager.shared.listenerName+"에요"
                 self.timeLbl.text = UserDefaultsManager.shared.meetingTime
                 self.dateLbl.text = UserDefaultsManager.shared.meetingDate
-                self.profileImg.image = UIImage(named: "profile"+"\(model.listener.profileImg)")
                 self.changeUI(self.homeState)
             } else {
                 self.homeState = .join
