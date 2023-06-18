@@ -69,7 +69,3 @@ github PR 을 통해 같은 iOS 개발자님과 함께 `코드 리뷰`를 진행
 
 <img src = "praise.png" width="900" height="200">
 
-<br/>
-
-# 참고
-- 중간에 깃허브 용량 초과로 인해 피치 못하게 저장소를 옮기게 되었습니다. 옮기기 전에 했던 기록들은 https://github.com/heelpass/goodlistener-ios 에 있습니다. 
