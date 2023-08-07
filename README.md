@@ -6,7 +6,7 @@
 
 # 개발 환경
 - 화면 구성: UIkit
-- 디자인 패턴: MVVM, Clean Architecture, Coordinator
+- 디자인 패턴: MVVM, Coordinator
 - 의존성 관리 도구: CocoaPods, Swift Package Manager
 - 배포: Fastlane
 - 네트워킹: Moya
