@@ -14,7 +14,7 @@
 - Dependency: CocoaPods, Swift Package Manager
 - CD: Fastlane
 - Networking: Moya
-- Asynchronous programming: Rxswift, RxCocoa, GCD
+- Asynchronous programming: Rxswift, RxCocoa, Concurrency
 - Library: AgoraRtcKit
 <br/>
 
